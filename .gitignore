@@ -1,0 +1,5 @@
+tester
+haskell_binary
+*.hi
+*.o
+.stack-work
