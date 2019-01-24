@@ -1,13 +1,13 @@
-# Redis Solution Starter - JS
+# Redis Solution Starter - PY
 
-This is a starting point for JS solutions to the Redis Challenge.
+This is a starting point for PY solutions to the Redis Challenge.
 
 **Steps to get started**:
 
 - Get a leaderboard URL & API key from Paul
 - Ensure your API key is available as `$REDIS_CHALLENGE_API_KEY`
 (env var)
-- Ensure you have `node` installed locally
+- Ensure you have `python` installed locally
 - Clone this repository
 
 **Workflow**:
