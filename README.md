@@ -5,7 +5,7 @@ Own Redis' Challenge](https://rohitpaulk.com/articles/redis-challenge).
 
 **Steps to get started**:
 
-- Ensure you have `python` installed locally
+- Ensure you have python installed locally
 - Clone this repository
 
 **Workflow**:
@@ -13,9 +13,9 @@ Own Redis' Challenge](https://rohitpaulk.com/articles/redis-challenge).
 - Run `make download_tester_mac` (or `download_tester_linux`, if you're running
   linux)
 - Run `make test`. You should see a failure message at this point.
-- Implement the required feature in `app/main.py`, iterate until `make test`
-  passes. (If you want more verbose output for errors, use `make test_debug`
-  instead of `make test`)
+- Implement the required feature in `app/main.py`, iterate
+  until `make test` passes. (If you want more verbose output for errors, use
+`make test_debug` instead of `make test`)
 - Bump `current_stage` in your Makefile to go to the next stage!
 
 **Leaderboard**:
