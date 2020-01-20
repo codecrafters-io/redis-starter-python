@@ -9,16 +9,22 @@ event loops, the Redis protocol and more.
 
 # Usage
 
-1. Ensure you have `python` (3.8) installed locally. 
+1. Ensure you have `python` (3.8) installed locally.
 2. Run `make install`, which'll install the required Python dependencies.
-3. We've built a basic local testing setup for you at `tests/test_main.py`. To
+3. Run `make test` to run local tests, which are located in `tests/test_main.py`
+4. Commit your changes and run `git push origin master` to submit your solution
+   to CodeCrafters. Test output will be streamed to your terminal.
+
+# Passing the first stage
+
+1. We've built a basic local testing setup for you at `tests/test_main.py`. To
    run these tests, run `make test`.
    
    You should see a failure message that looks like this: 
    
 ```sh
-================================================================================================================== FAILURES ===================================================================================================================
-__________________________________________________________________________________________________________ test_can_connect_to_6379 ___________________________________________________________________________________________________________
+============== FAILURES =============
+______ test_can_connect_to_6379 _____
 
     def test_can_connect_to_6379():
         with spawn_server():
@@ -35,40 +41,49 @@ E               ConnectionRefusedError: [Errno 111] Connection refused
 /usr/lib64/python3.8/socket.py:796: ConnectionRefusedError
 ```
    
- 4. Now, implement a socket in `app/main.py`
+2. Now, implement a socket in `app/main.py`
  
 ```diff
-diff --git a/app/main.py b/app/main.py
-index fdfa4b3..31bbf15 100644
---- a/app/main.py
-+++ b/app/main.py
-@@ -1,2 +1,14 @@
--# Implement your server here
--print("hey")
-\ No newline at end of file
+--- app/old.py	2020-01-20 10:29:06.254902363 +0530
++++ app/main.py	2020-01-20 10:23:36.160486553 +0530
+@@ -1,3 +1,4 @@
 +import socket
-+import time
-+
-+
-+def main():
-+    # Implement your server here
-+    print("hey")
-+
+ import time
+ 
+ 
+@@ -5,6 +6,9 @@
+     # Implement your server here
+     print("hey")
+ 
 +    s = socket.create_server(("localhost", 6379))
 +    s.accept()  # Wait for a new connection
 +
-+
-+if __name__ == "__main__":
-+    main()
+ 
+ if __name__ == "__main__":
+     main()
 ```
-   
-   
 
-# Submitting your first stage solution
+3. Run `make test` again, and the tests should now pass!
+   
+```
+$ make test
+pipenv run pytest tests
+============================= test session starts ====================
+platform linux -- Python 3.8.1, pytest-5.3.3, py-1.8.1, pluggy-0.13.1
+rootdir: /redis-solution-starter-py
+collected 1 item                                                                                                                                                                                                                              
+
+tests/test_main.py .                                                                                                                                                                                                                    [100%]
+
+============================== 1 passed in 0.13s =====================
+```
+
+4. Now it's time to submit your result to CodeCrafters! Commit your changes and
+   run `git push origin master`.
 
 # Troubleshooting
 
-1. `make install` says it can't find Python 3.8, although I have it installed
+**`make install` says it can't find Python 3.8, although I have it installed**
 
 When running `make install`, you might be prompted with something like this: 
 
@@ -86,28 +101,3 @@ installed at `/usr/bin/python38`, then run the following:
 ``` sh
 pipenv --python /usr/bin/python38 install
 ```
-
-**Steps to get started**:
-
-- Ensure you have `python` installed locally
-- Clone this repository
-
-**Workflow**:
-
-- Run `make download_tester_mac` (or `download_tester_linux`, if you're running
-  linux)
-- Run `make test`. You should see a failure message at this point.
-- Implement the required feature in `app/main.py`, iterate
-  until `make test` passes. (If you want more verbose output for errors, use
-`make test_debug` instead of `make test`)
-- Bump `current_stage` in your Makefile to go to the next stage!
-
-**Leaderboard**:
-
-If you'd like to be included in [the
-leaderboard](https://jayantbh.github.io/redis-challenge-leaderboard-ui/):
-
-- Ask Paul for an API key
-- Ensure your API key is available as `$REDIS_CHALLENGE_API_KEY` (env var)
-- After completing a stage, run `make test_and_report` to update your
-  leaderboard state
