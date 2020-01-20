@@ -1,4 +1,5 @@
-Welcome to the CodeCrafters Redis Challenge!
+This is a starting point for Python solutions to the CodeCrafters
+Redis Challenge.
 
 In this challenge, you'll build a toy Redis clone that's capable of handling
 basic commands like `PING`, `SET` and `GET`. Along the way we'll learn about
@@ -9,10 +10,10 @@ event loops, the Redis protocol and more.
 
 # Usage
 
-1. Ensure you have `python` (3.8) installed locally.
-2. Run `make install`, which'll install the required Python dependencies.
+1. Ensure you have `python (3.8)` installed locally
+2. Run `make install`, which'll install the required dependencies.
 3. Run `make run_local_server` to run your Redis server, which is implemented in
-   `app/main.py`
+   `app/main.py`.
 3. Run `make test` to run local tests, which are located in `tests/test_main.py`
 4. Commit your changes and run `git push origin master` to submit your solution
    to CodeCrafters. Test output will be streamed to your terminal.
@@ -21,8 +22,8 @@ event loops, the Redis protocol and more.
 
 # Passing the first stage
 
-CodeCrafters runs tests when you do a `git push`. Make an empty commit and
-push your solution to see the first stage fail.
+CodeCrafters runs tests when you do a `git push`. Make an empty commit and push
+your solution to see the first stage fail.
    
 ``` sh
 git commit --allow-empty -m "Running tests"
@@ -100,6 +101,8 @@ Now it's time to submit our result to CodeCrafters! Commit your changes and run
 Time to move on to the next stage! Bump the `current_stage` value in
 `.codecrafters.yml` and run `git push origin master` again.
 
+
+
 # Troubleshooting
 
 ### `make install` can't find Python 3.8, although I have it installed
@@ -120,3 +123,5 @@ installed at `/usr/bin/python38`, then run the following:
 ``` sh
 pipenv --python /usr/bin/python38 install
 ```
+
+
