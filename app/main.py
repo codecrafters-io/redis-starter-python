@@ -3,11 +3,7 @@ import time
 
 
 def main():
-    # Implement your server here
-    print("hey")
-
-    s = socket.create_server(("localhost", 6379))
-    s.accept()  # Wait for a new connection
+    print("Implement your Redis server here!")
 
 
 if __name__ == "__main__":

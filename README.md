@@ -11,6 +11,8 @@ event loops, the Redis protocol and more.
 
 1. Ensure you have `python` (3.8) installed locally.
 2. Run `make install`, which'll install the required Python dependencies.
+3. Run `make run_local_server` to run your Redis server, which is implemented in
+   `app/main.py`
 3. Run `make test` to run local tests, which are located in `tests/test_main.py`
 4. Commit your changes and run `git push origin master` to submit your solution
    to CodeCrafters. Test output will be streamed to your terminal.
