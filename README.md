@@ -100,7 +100,7 @@ Time to move on to the next stage! Bump the `current_stage` value in
 
 # Troubleshooting
 
-**`make install` says it can't find Python 3.8, although I have it installed**
+### `make install` can't find Python 3.8, although I have it installed
 
 When running `make install`, you might be prompted with something like this: 
 
