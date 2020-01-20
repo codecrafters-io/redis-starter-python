@@ -1,7 +1,3 @@
-import socket
-import time
-
-
 def main():
     print("Implement your Redis server here!")
 
