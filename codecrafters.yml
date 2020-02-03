@@ -9,8 +9,6 @@ current_stage: 1
 # These can be VERY verbose, so we suggest turning them off
 # unless you really need them.
 debug: false
-
-
 # Use this to change the Python version used to run your code
 # on Codecrafters.
 #
