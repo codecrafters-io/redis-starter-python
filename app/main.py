@@ -4,7 +4,8 @@ def main():
     # Uncomment this to pass the first stage
     #
     # import socket
-    # socket.create_server(("localhost", 6379), reuse_port=True)
+    # s = socket.create_server(("localhost", 6379), reuse_port=True)
+    # s.listen()  # Wait for a connection
 
 
 if __name__ == "__main__":
