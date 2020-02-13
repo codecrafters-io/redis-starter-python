@@ -1,4 +1,4 @@
 #!/bin/sh
 
 echo "Spawning Redis server..."
-python app/main.py
+exec python app/main.py
