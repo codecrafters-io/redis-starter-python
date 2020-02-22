@@ -11,20 +11,11 @@ event loops, the Redis protocol and more.
 # Usage
 
 1. Ensure you have `python (3.8)` installed locally
-1. Run `make run_local_server` to run your Redis server, which is implemented in
+1. Run `./spawn_redis_server.sh` to run your Redis server, which is implemented in
    `app/main.py`.
 1. Commit your changes and run `git push origin master` to submit your solution
    to CodeCrafters. Test output will be streamed to your terminal.
-1. Once you pass a stage, increment the `current_stage` value in
-   `.codecrafters.yml`, and run `git push origin master` to advance to the next
-   stage.
-   
-
-# Local tests
-
-1. Run `make test` to run local tests, which are located in `tests/test_main.py`
-
-
+ 
 # Passing the first stage
 
 CodeCrafters runs tests when you do a `git push`. Make an empty commit and push
@@ -41,29 +32,31 @@ You should see a failure message that says it wasn't able to connect to port
 Go to `app/main.py` and uncomment the server implementation. Commit and
 push your changes, and you'll now see the first stage pass.
 
-Time to move on to the next stage! Bump the `current_stage` value in
-`.codecrafters.yml` and run `git push origin master` again.
-
-
+Time to move on to the next stage!
 
 # Troubleshooting
 
-### `make install` can't find Python 3.8, although I have it installed
+### module `socket` has not attribute `create_server`
 
-When running `make install`, you might be prompted with something like this: 
+When running your server locally, you might see an error like this: 
 
 ```
-Warning: Python 3.8 was not found on your system…
-You can specify specific versions of Python with:
-  $ pipenv --python path/to/python
+Traceback (most recent call last):
+  File "/usr/local/lib/pyenv/versions/3.7.3/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/local/lib/pyenv/versions/3.7.3/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/app/app/main.py", line 11, in <module>
+    main()
+  File "/app/app/main.py", line 6, in main
+    s = socket.create_server(("localhost", 6379), reuse_port=True)
+AttributeError: module 'socket' has no attribute 'create_server'
 ```
 
-This is because `pipenv` expects your default `python` executable's version to
-be 3.8. If you've installed 3.8 elsewhere, use `pipenv --python
-<path/to/your/python38> install`. For example, if you have Python 3.8
-installed at `/usr/bin/python38`, then run the following: 
+This is because `socket.create_server` was introduced in Python 3.8, and you
+might be running an older version. 
 
-``` sh
-pipenv --python /usr/bin/python38 install
-```
+You can fix this by installing Python 3.8 locally and using that. 
 
+If you'd like to use a different version of Python, change the `language_pack`
+value in `codecrafters.yml`.
